@@ -1,0 +1,116 @@
+/* Estilo básico da página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fce4ec;
+    color: #880e4f;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.container {
+    margin-top: 50px;
+    max-width: 80%;
+    animation: fadeInUp 2s ease;
+}
+
+@keyframes fadeInUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Botão com animação de hover */
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #ff80ab;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.glow-on-hover {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 20px #ff69b4; }
+    50% { box-shadow: 0 0 40px #ff69b4; }
+    100% { box-shadow: 0 0 20px #ff69b4; }
+}
+
+/* Estilo do container do buquê */
+#flowerContainer {
+    margin-top: 50px;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: all 0.8s ease-in-out;
+}
+
+#flowerContainer img {
+    width: 300px;
+    border: 5px solid #ff69b4;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#flowerContainer.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Efeitos de pétalas */
+.petal {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('petal.png') no-repeat;
+    background-size: contain;
+    animation: fall 10s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* Melhoria nas pétalas */
+.petal:nth-child(odd) {
+    animation-duration: 7s;
+    opacity: 0.6;
+}
+
+.petal:nth-child(even) {
+    animation-duration: 12s;
+    opacity: 0.9;
+}
